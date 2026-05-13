@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klik Studio | Brazil - Memória do Amanhã</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        :root {
+            --neon-blue: #00f2ff;
+            --bg-dark: #050505;
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-futuristic { font-family: 'Orbitron', sans-serif; }
+
+        /* Grid de Imagens sempre visíveis */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .image-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            background: #111;
+            transition: all 0.5s ease;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .label-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+        }
+
+        /* Efeito de scanline futurista */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 242, 255, 0) 0%, rgba(0, 242, 255, 0.05) 50%, rgba(0, 242, 255, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 py-5 px-8 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-futuristic text-xl font-bold tracking-widest text-white">
+                KLIK STUDIO <span class="text-cyan-400">| BRAZIL</span>
+            </h1>
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest">
+                <a href="#home" class="hover:text-cyan-400 transition">Início</a>
+                <a href="#portfolio" class="hover:text-cyan-400 transition">Portfólio</a>
+                <a href="#servicos" class="hover:text-cyan-400 transition">Sobre</a>
+                <a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Início / Hero -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="scanline"></div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514525253361-bee87184919a?auto=format&fit=crop&w=1920&q=80" 
+                 class="w-full h-full object-cover opacity-30 grayscale" alt="Fundo Eventos">
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <p class="text-cyan-400 tracking-[0.5em] mb-4 text-sm font-bold uppercase">A Arte do Registro Eterno</p>
+            <h2 class="font-futuristic text-5xl md:text-8xl font-bold mb-6">
+                MEMÓRIA DO <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">AMANHÃ</span>
+            </h2>
+            <div class="h-1 w-32 bg-cyan-500 mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Portfólio / Galeria Visível -->
+    <section id="portfolio" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="font-futuristic text-3xl font-bold uppercase mb-4 text-white">Nosso Portfólio</h3>
+                <p class="text-gray-500 tracking-widest uppercase text-sm italic">Capturas em Formaturas, Casamentos e Corporativo</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- FORMATURAS (Destaque Principal) -->
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1525921429624-479b6a26d84d?auto=format&fit=crop&w=800&q=80" alt="Formatura Capelo">
+                    <div class="label-overlay">FORMATURA // TRADIÇÃO</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=800&q=80" alt="Formatura Grupo">
+                    <div class="label-overlay">FORMATURA // SUCESSO</div>
+                </div>
+
+                <!-- CASAMENTO -->
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Casamento">
+                    <div class="label-overlay">CASAMENTO // UNIÃO</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Casamento Noivos">
+                    <div class="label-overlay">CASAMENTO // EMOÇÃO</div>
+                </div>
+
+                <!-- EMPRESARIAL -->
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Corporativo Reunião">
+                    <div class="label-overlay">EMPRESARIAL // NETWORKING</div>
+                </div>
+
+                <!-- PESSOAL -->
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Retrato Pessoal">
+                    <div class="label-overlay">PESSOAL // IDENTIDADE</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Ensaio Profissional">
+                    <div class="label-overlay">PESSOAL // VISÃO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços / Sobre -->
+    <section id="servicos" class="py-24 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h3 class="font-futuristic text-4xl font-bold mb-6 text-cyan-400">SOBRE KLIK STUDIO BRAZIL</h3>
+                <div class="h-1 w-20 bg-white mb-8"></div>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    A Klik Studio Brazil é um laboratório de arte visual focado no conceito de "Memória do Amanhã". Nós entendemos que cada clique é um arquivo emocional que deve durar por gerações.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                    Especializados em coberturas de alto nível, desde a grandiosidade das formaturas universitárias até a sofisticação de eventos corporativos e o intimismo de ensaios pessoais. Nossa técnica funde tecnologia de ponta com um olhar cinematográfico único.
+                </p>
+                <ul class="space-y-3 text-cyan-500 font-bold uppercase text-xs tracking-widest">
+                    <li><i class="fas fa-chevron-right mr-2 text-white"></i> Fotografia de Alta Performance</li>
+                    <li><i class="fas fa-chevron-right mr-2 text-white"></i> Tratamento Digital Futurista</li>
+                    <li><i class="fas fa-chevron-right mr-2 text-white"></i> Cobertura de Eventos de Gala</li>
+                </ul>
+            </div>
+            <div class="md:w-1/2">
+                <div class="border border-cyan-500/20 p-4 bg-black">
+                    <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1000&q=80" class="grayscale hover:grayscale-0 transition duration-1000" alt="Equipe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / Footer -->
+    <footer id="contacto" class="py-20 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-futuristic text-2xl mb-12 tracking-widest uppercase">Estabelecer Conexão</h3>
+            
+            <div class="flex justify-center space-x-12 mb-16">
+                <!-- E-mail -->
+                <a href="mailto:brazilKlikstudio@gmail.com" class="text-gray-500 hover:text-cyan-400 text-4xl transition-all duration-500 transform hover:scale-110">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                
+                <!-- WhatsApp (Ícone clicável sem número visível) -->
+                <a href="https://wa.me/258852340888" target="_blank" class="text-gray-500 hover:text-green-500 text-4xl transition-all duration-500 transform hover:scale-110">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <p class="text-gray-800 font-mono text-[10px] tracking-[0.6em] uppercase">
+                &copy; 2024 Klik Studio | Brazil - Memória do Amanhã // Todos os Direitos Reservados
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante Lateral (WhatsApp) -->
+    <a href="https://wa.me/258852340888" target="_blank" 
+       class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-cyan-500 text-black rounded-full flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(0,242,255,0.4)] hover:scale-110 transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
